@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>SMTP Smuggling</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;scroll-margin: 40px}
+.w3-sidebar {
+  z-index: 3;
+  width: 250px;
+  top: 43px;
+  bottom: 0;
+  height: inherit;
+}
+</style>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-theme-l1">SMTP Smuggling</a>
+  </div>
+</div>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#introduction">Introduction</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#tools">Tools</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#vulnerable">I'm vulnerable! What now?</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#software">Affected Software</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#references">References</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#videos">Videos</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#scanner">Scanner</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#comingsoon">Coming soon...</a>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+  <div class="w3-row w3-padding-top-64">
+    <div class="w3 w3-container">
+      <h1 class="w3-text-red">Under construction!</h1>
+      <h3 class="w3-text-red">This website is currently under construction! Displayed information is not final! Also, please do NOT share this page yet!</h3>
+    </div>
+  </div>
+
+  <div class="w3-row w3-padding-top-64">
+    <div class="w3-row w3-bar w3-black">
+        <h1 class="w3-bar-item">SMTP Smuggling</h1>
+    </div>
+  </div>
+
+  <div class="w3-row">
+    <div class="w3-third w3-container">
+      <h1 class="w3-text-black" id="introduction">Introduction</h1>
+      <p>SMTP smuggling is a novel vulnerability that allows <a href="https://en.wikipedia.org/wiki/Email_spoofing">e-mail spoofing</a> by exploiting interpretation differences of the SMTP protocol in vulnerable server constellations. More specifically, different understandings of so called "end-of-data" sequences between outbound (sending) and inbound (receiving) SMTP servers may allow an attacker to smuggle - hence <b>SMTP smuggling</b> - spoofed e-mails (see Figure 1). Threat actors can abuse this to send malicious e-mails from arbitrary e-mail addresses, allowing targeted phishing attacks.</p>
+      <p><a href="#software">Affected software</a> identified on the outbound side includes Exchange Online and GMX, which are hosting millions of domains. On the inbound side, over a million SMTP instances including Postfix, Sendmail, Cisco and others are affected. This allowed spoofing e-mails from millions of domains (e.g., microsoft.com, github.com, gmx.net) to millions of SMTP servers.</p>
+      <p>As a result of miscommunications in the vulnerability disclosure, millions of inbound SMTP servers are left vulnerable to SMTP smuggling. Further cases of SMTP smuggling vulnerabilities in outbound servers would again allow spoofing e-mails from affected domains. <br>Also due to a severe case of SMTP smuggling in Cisco Secure Email and missing vendor support, it is highly advised to change the vulnerable default configuration (see <a href="#software">affected software</a>).</p>
+      <p>
+        <i>In-depth information on SMTP smuggling can be found in the <a href="https://sec-consult.com/blog/detail/smtp-smuggling-spoofing-e-mails-worldwide/">original blog post</a> as well as in the <a href="#references">referenced resources</a>.</i>
+      </p>
+    </div>
+    <div class="w3-twothird w3-container w3-center">
+      <img class="w3-image" src="images/SMTP-Smuggling-Overview.png">
+      <p><i>Figure 1: SMTP smuggling overview</i></p>
+    </div> 
+  </div>
+
+  <div class="w3-row">
+    <div class="w3-container">
+      <h1 class="w3-text-black" id="tools">Tools</h1>
+      <p>Here are some tools for identifying SMTP smuggling issues that are available on GitHub!</p>
+      <p>"Official" SMTP smuggling tools:</p>
+      <a class="github-button" href="https://github.com/The-Login/SMTP-Smuggling-Tools"  target="_blank" aria-label="View SMTP Smuggling Tools on GitHub">View SMTP Smuggling Tools on GitHub</a><br>
+      <p>Thank you <a href="https://hboeck.de/">Hanno Böck</a> for smtpsmug!</p>
+      <a class="github-button" href="https://github.com/hannob/smtpsmug"  target="_blank" aria-label="View smtpsmug on GitHub">View smtpsmug on GitHub</a><br>
+      <!--p>Thank you <a href="https://twitter.com/ricardo_iramar">Ricardo Iramar</a> for SmuggleTP!</p>
+      <a class="github-button" href="https://github.com/riramar/SmuggleTP"  target="_blank" aria-label="View SmuggleTP on GitHub">View SmuggleTP on GitHub</a-->
+    </div>
+  </div>
+
+  <div class="w3-row">
+    <div class="w3-container">
+      <h1 class="w3-text-black" id="vulnerable">I'm vulnerable! What now?</h1>
+      <p>The <b><a href="#software">Affected Software</a></b> section may include the information you are looking for. Furthermore, there may already be fixes and workarounds for your specific SMTP software online.<br>
+        If you don't find any solutions online, please drop Timo a message on <b><a href="https://infosec.exchange/@login">Mastodon</a></b> or <b><a href="https://twitter.com/timolongin">X</a></b> (temporary solution).
+      </p>
+    </div>
+  </div>
+
+  <div class="w3-row">
+    <div class="w3-container">
+      <h1 class="w3-text-black" id="software">Affected Software</h1>
+      <table class="w3-table w3-table-all">
+        <tr>
+            <th>Software</th>
+            <th>Description</th>
+            <th>Fix/Workaround</th>
+            <th>Smuggling direction</th>
+            <th>CVE</th>
+        </tr>
+        <tr>
+            <td>Cisco Secure Email (Cloud) Gateway</td>
+            <td>On-premise and cloud versions of Cisco Secure Email Gateway using the default configuration are vulnerable to <b>severe</b> inbound SMTP smuggling, since end-of-data sequences like "&lt;CR&gt;.&lt;/CR&gt;" are accepted. This allows spoofing e-mails from millions of domains. More information can be found in the <a href="https://sec-consult.com/blog/detail/smtp-smuggling-spoofing-e-mails-worldwide/">original blog post</a>.</td>
+            <td>The option <a href="https://www.cisco.com/c/en/us/td/docs/security/esa/esa15-0/user_guide/b_ESA_Admin_Guide_15-0/b_ESA_Admin_Guide_12_1_chapter_0100.html?bookSearch=true#task_1254814__table_985308C400C84CE3BC190BC8A3A95D86">"CR and LF Handling"</a> must be reconfigured to "Reject" or "Allow" (deprecated). This issue will <a href="https://bst.cisco.com/quickview/bug/CSCwh10142">most likely not be addressed</a> by Cisco.</td>
+            <td>Inbound</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>Postfix</td>
+            <td>Postfix was identified to accept non RFC-compliant end-of-data sequences like "&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;". This is not as severe of an issue like with Cisco Secure Email, <b>however</b> this still allows SMTP smuggling, if outbound servers (as identified with Exchange Online and GMX) do not filter such "&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;" sequences. More information can be found in the <a href="https://sec-consult.com/blog/detail/smtp-smuggling-spoofing-e-mails-worldwide/">original blog post</a>.</td>
+            <td>Detailed information can be found on the <a href="https://www.postfix.org/smtp-smuggling.html">Postfix website</a>.<br><b>Thanks to Wietse and Viktor</b> for providing quick solutions!</td>
+            <td>Inbound</td>
+            <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-51764">CVE-2023-51764</a></td>
+        </tr>
+        <tr>
+            <td>Sendmail</td>
+            <td>Sendmail and Postfix handle end-of-data sequences the same way. As with Postfix, pipelined SMTP commands by default get executed after a "fake" end-of-data sequence is processed.</td>
+            <td>For now, <a href="https://ftp.sendmail.org/snapshots/">Sendmail snapshot 8.18.0.2</a> can be used. More information can be found <a href="https://groups.google.com/g/comp.mail.sendmail/c/zwJW9907Zgo?pli=1">here</a>.</td>
+            <td>Inbound</td>
+            <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-51765">CVE-2023-51765</a></td>
+        </tr>
+        <tr>
+            <td>Exim</td>
+            <td>Some configurations of Exim are vulnerable to SMTP smuggling similar to Postfix and Sendmail.</td>
+            <td>Upgrading to Exim version 4.97.1 or later should fix this issue.</td>
+            <td>Inbound</td>
+            <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-51766">CVE-2023-51766</a></td>
+        </tr>
+        <tr>
+            <td>Exchange Online</td>
+            <td>Outbound Exchange Online servers allowed to send "&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;" sequences to inbound/receiving servers due to insufficient filtering of message data. This behavior is a violation of RFC 5322 and, as of now, was only identified for Exchange Online and GMX (see below). This vulnerability allowed smuggling spoofed e-mails from millions of domains hosted at Exchange Online (e.g., microsoft.com, github.com, tesla.com, etc.) to millions of e-mail servers running Postfix, Sendmail, Exim and possibly more.</td>
+            <td>Microsoft has already fixed this issue.</td>
+            <td>Outbound</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>GMX</td>
+            <td>As Exchange Online, GMX also allowed to send "&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;" sequences to millions of inbound/receiving servers due to insufficient filtering of message data.</td>
+            <td>GMX promptly fixed this issue.</td>
+            <td>Outbound</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>Possibly more!</b></td>
+            <td>Please help us to identify more vulnerable SMTP software by using the <a href="#tools">provided tools</a>. If you're vulnerable and using software that is not already in this list, please drop Timo a message on <a href="https://infosec.exchange/@login">Mastodon</a> or <a href="https://twitter.com/timolongin">X</a>.</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="w3-row">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-black" id="references">References</h1>
+      <table class="w3-table w3-table-all">
+        <tr>
+            <th>Resource</th>
+            <th>Link</th>
+        </tr>
+        <tr>
+            <td>Original blog post</td>
+            <td><a href="https://sec-consult.com/blog/detail/smtp-smuggling-spoofing-e-mails-worldwide/">https://sec-consult.com/blog/detail/smtp-smuggling-spoofing-e-mails-worldwide/</a></td>
+        </tr>
+        <tr>
+            <td>Postfix status</td>
+            <td><a href="https://www.postfix.org/smtp-smuggling.html">https://www.postfix.org/smtp-smuggling.html</a></td>
+        </tr>
+        <tr>
+            <td>SMTP smuggling and Exchange (DE)</td>
+            <td><a href="https://www.msxfaq.de/internet/smtp_smuggling_exchange.htm">https://www.msxfaq.de/internet/smtp_smuggling_exchange.htm</a></td>
+        </tr>
+
+        <tr>
+            <td>Email spoofing</td>
+            <td><a href="https://en.wikipedia.org/wiki/Email_spoofing">https://en.wikipedia.org/wiki/Email_spoofing</a></td>
+        </tr>
+        <tr>
+            <td>Talk at 37C3</td>
+            <td><a href="https://www.youtube.com/watch?v=V8KPV96g1To">https://www.youtube.com/watch?v=V8KPV96g1To</a></td>
+        </tr>        
+      </table>
+    </div>
+  </div>
+
+  <div class="w3-row">
+    <div class="w3-container">
+      <h1 class="w3-text-black" id="videos">Videos</h1>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/V8KPV96g1To?si=UUp-lAltkckpXEOg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="w3-row">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-black" id="scanner1">Scanner</h1>
+      <p><i>The scanner is currently under review! In the meantime, check out the other available <a href="#tools">tools</a>.</i></p>
+      <!--p>Scan your receiving/inbound SMTP server for SMTP smuggling!</p>
+      <p>How does this work? This scanner is a web-based version of the <b><a href="https://github.com/The-Login/SMTP-Smuggling-Tools">SMTP smuggling scanner on GitHub</a></b> and works by sending a number of test e-mails to your provided e-mail address. You will receive e-mails coming from <b class="w3-text-green">test@check.smtpsmuggling.com</b> and, if you're vulnerable, you will also receive one or more e-mails from <b class="w3-text-red">smuggled@check.smtpsmuggling.com</b>. Note that the supplied e-mail address is only used for scanning purposes and won't be stored in any way!</p>
+      <form>
+        <b class="w3-text-black">Enter your e-mail address here:</b>
+        <input class="w3-input w3-border" type="text">
+        <button class="w3-btn w3-black">Scan!</button>
+      </form>
+      <div id="scan_results">
+      </div-->
+    </div>
+  </div>
+
+  <div class="w3-row">
+    <div class="w3-container">
+      <h1 class="w3-text-black" id="comingsoon">Coming soon...</h1>
+      <p>New information, updates, tools and more coming soon!</p>
+    </div>
+  </div>
+
+  <footer id="myFooter">
+    <div class="w3-container w3-theme-l1">
+      <p>> SMTP SMUGGLING EOD</p>
+    </div>
+  </footer>
+
+<!-- END MAIN -->
+</div>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
+
+</body>
+</html>
