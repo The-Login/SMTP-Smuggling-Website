@@ -1,6 +1,3 @@
-# WORK IN PROGRESS
-**This website is currently under construction! Displayed information is not final! Also, please do NOT share this page yet!**
-
 # smtpsmuggling.com  
 This repository holds the code for the [smtpsmuggling.com](https://smtpsmuggling.com) website. The website is hosted via GitHub Pages.
 
