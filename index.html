@@ -69,7 +69,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;scroll-margin: 40
       <p><a href="#software">Affected software</a> identified on the outbound side includes Exchange Online and GMX, which are hosting millions of domains. On the inbound side, over a million SMTP instances including Postfix, Sendmail, Cisco and others are affected. This allowed spoofing e-mails from millions of domains (e.g., microsoft.com, github.com, gmx.net) to millions of SMTP servers.</p>
       <p>As a result of miscommunications in the vulnerability disclosure, millions of inbound SMTP servers are left vulnerable to SMTP smuggling. Further cases of SMTP smuggling vulnerabilities in outbound servers would again allow spoofing e-mails from affected domains. <br>Also due to a severe case of SMTP smuggling in Cisco Secure Email and missing vendor support, it is highly advised to change the vulnerable default configuration (see <a href="#software">affected software</a>).</p>
       <p>
-        <i>In-depth information on SMTP smuggling can be found in the <a href="https://sec-consult.com/blog/detail/smtp-smuggling-spoofing-e-mails-worldwide/">original blog post</a> as well as in the <a href="#references">referenced resources</a>.</i>
+        <i>In-depth information on SMTP smuggling can be found in the <a href="https://sec-consult.com/blog/detail/smtp-smuggling-spoofing-e-mails-worldwide/">original blog post</a> as well as in the <a href="#references">referenced resources</a>. The official CERT/CC vulnerability note (VU#302671) can be found <a href="https://www.kb.cert.org/vuls/id/302671">here</a>.</i>
       </p>
     </div>
     <div class="w3-twothird w3-container w3-center">
@@ -175,6 +175,10 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;scroll-margin: 40
         <tr>
             <td>Original blog post</td>
             <td><a href="https://sec-consult.com/blog/detail/smtp-smuggling-spoofing-e-mails-worldwide/">https://sec-consult.com/blog/detail/smtp-smuggling-spoofing-e-mails-worldwide/</a></td>
+        </tr>
+        <tr>
+            <td>CERT/CC Vulnerability Note VU#302671</td>
+            <td><a href="https://www.kb.cert.org/vuls/id/302671">https://www.kb.cert.org/vuls/id/302671</a></td>
         </tr>
         <tr>
             <td>Postfix status</td>
