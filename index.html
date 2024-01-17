@@ -140,6 +140,13 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;scroll-margin: 40
             <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-51766">CVE-2023-51766</a></td>
         </tr>
         <tr>
+            <td>SurgeMail</td>
+            <td>SurgeMail is vulnerable to SMTP smuggling similar to Postfix and Sendmail.</td>
+            <td>More information on fixing SurgeMail can be found <a href="https://surgemail.com/knowledge-base/smtp-smuggling/">here</a>.</td>
+            <td>Inbound</td>
+            <td>-</td>
+        </tr>
+        <tr>
             <td>Exchange Online</td>
             <td>Outbound Exchange Online servers allowed to send "&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;" sequences to inbound/receiving servers due to insufficient filtering of message data. This behavior is a violation of RFC 5322 and, as of now, was only identified for Exchange Online and GMX (see below). This vulnerability allowed smuggling spoofed e-mails from millions of domains hosted at Exchange Online (e.g., microsoft.com, github.com, tesla.com, etc.) to millions of e-mail servers running Postfix, Sendmail, Exim and possibly more.</td>
             <td>Microsoft has already fixed this issue.</td>
