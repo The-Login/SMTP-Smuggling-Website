@@ -44,7 +44,6 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;scroll-margin: 40
   <a class="w3-bar-item w3-button w3-hover-black" href="#unaffected-software">Unaffected Software</a>
   <a class="w3-bar-item w3-button w3-hover-black" href="#references">References</a>
   <a class="w3-bar-item w3-button w3-hover-black" href="#videos">Videos</a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="#scanner">Scanner</a>
   <a class="w3-bar-item w3-button w3-hover-black" href="#contribute">Contribute</a>
   <a class="w3-bar-item w3-button w3-hover-black" href="#comingsoon">Coming soon...</a>
   <a class="w3-bar-item w3-button w3-hover-black" href="#imprint">Imprint</a>
@@ -87,8 +86,6 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;scroll-margin: 40
       <a class="github-button" href="https://github.com/The-Login/SMTP-Smuggling-Tools"  target="_blank" aria-label="View SMTP Smuggling Tools on GitHub">View SMTP Smuggling Tools on GitHub</a><br>
       <p>Thank you <a href="https://hboeck.de/">Hanno Böck</a> for smtpsmug!</p>
       <a class="github-button" href="https://github.com/hannob/smtpsmug"  target="_blank" aria-label="View smtpsmug on GitHub">View smtpsmug on GitHub</a><br>
-      <!--p>Thank you <a href="https://twitter.com/ricardo_iramar">Ricardo Iramar</a> for SmuggleTP!</p>
-      <a class="github-button" href="https://github.com/riramar/SmuggleTP"  target="_blank" aria-label="View SmuggleTP on GitHub">View SmuggleTP on GitHub</a-->
     </div>
   </div>
 
@@ -137,9 +134,16 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;scroll-margin: 40
         <tr>
             <td>Exim</td>
             <td>Some configurations of Exim are vulnerable to SMTP smuggling similar to Postfix and Sendmail.</td>
-            <td>Upgrading to Exim version 4.97.1 or later should fix this issue. More information can be found on the <a href="https://www.exim.org/">Exim website</a></td>
+            <td>Upgrading to Exim version 4.97.1 or later should fix this issue. More information can be found on the <a href="https://www.exim.org/">Exim website</a>.</td>
             <td>Inbound</td>
             <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-51766">CVE-2023-51766</a></td>
+        </tr>
+        <tr>
+            <td>aiosmtpd</td>
+            <td>aiosmtpd is vulnerable to SMTP smuggling similar to Postfix and Sendmail.</td>
+            <td>Upgrading to aiosmtpd version 1.4.5 or later should fix this issue. More information can be found on <a href="https://github.com/aio-libs/aiosmtpd/security/advisories/GHSA-pr2m-px7j-xg65">GitHub</a>.</td>
+            <td>Inbound</td>
+            <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2024-27305">CVE-2024-27305</a></td>
         </tr>
         <tr>
             <td>SurgeMail</td>
@@ -236,22 +240,6 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;scroll-margin: 40
     <div class="w3-container">
       <h1 class="w3-text-black" id="videos">Videos</h1>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/V8KPV96g1To?si=UUp-lAltkckpXEOg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
-  </div>
-
-  <div class="w3-row">
-    <div class="w3-twothird w3-container">
-      <h1 class="w3-text-black" id="scanner">Scanner</h1>
-      <p><i>The scanner is currently under review! In the meantime, check out the other available <a href="#tools">tools</a>.</i></p>
-      <!--p>Scan your receiving/inbound SMTP server for SMTP smuggling!</p>
-      <p>How does this work? This scanner is a web-based version of the <b><a href="https://github.com/The-Login/SMTP-Smuggling-Tools">SMTP smuggling scanner on GitHub</a></b> and works by sending a number of test e-mails to your provided e-mail address. You will receive e-mails coming from <b class="w3-text-green">test@check.smtpsmuggling.com</b> and, if you're vulnerable, you will also receive one or more e-mails from <b class="w3-text-red">smuggled@check.smtpsmuggling.com</b>. Note that the supplied e-mail address is only used for scanning purposes and won't be stored in any way!</p>
-      <form>
-        <b class="w3-text-black">Enter your e-mail address here:</b>
-        <input class="w3-input w3-border" type="text">
-        <button class="w3-btn w3-black">Scan!</button>
-      </form>
-      <div id="scan_results">
-      </div-->
     </div>
   </div>
 
